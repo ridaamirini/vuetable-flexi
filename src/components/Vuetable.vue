@@ -738,7 +738,7 @@ export default {
       let body = this.transform ? this.transform(response.data) : response.data
 
       let newData = this.getObjectValue(body, this.dataPath, null)
-      this.tableData = this.infiniteScroll ? this.tableData.concat(newData) : newData
+      this.tableData = this.infiniteScroll && Array.isArray(this.tableData) ? this.tableData.concat(newData) : newData
       this.tablePagination = this.getObjectValue(body, this.paginationPath, null)
 
       if (this.tablePagination === null) {
