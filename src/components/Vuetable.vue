@@ -1212,10 +1212,14 @@ export default {
     },
 
     reload () {
+      if (this.infiniteScroll) this.resetData();
+    
       return this.loadData()
     },
 
     refresh () {
+      if (this.infiniteScroll) this.resetData();
+      
       this.currentPage = this.firstPage
       return this.loadData()
     },
